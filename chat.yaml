@@ -6,7 +6,7 @@ http_options:
 
   host: 0.0.0.0
 
-  port: 8888
+  port: 8778
 
 grpc_options:
 
