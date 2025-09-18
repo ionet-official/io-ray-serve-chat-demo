@@ -39,14 +39,14 @@ python chat_client.py
    ![chat client example](images/chat-client-example.png)
 
 9. Test your Chatbot server endpoint from outside the Cluster
-   1. Server endpoint: `https://exposed-service-[YOUR-CLUSTER-SUFFIX].tunnels.io.systems/`
-   2. If your cluster suffix is `1d47a`, then: `https://exposed-service-1d47a.tunnels.io.systems/`
-   3. One way to identify your prefix is from the the VSCode URL, which looks like `https://vscode-1d47a.tunnels.io.systems/`
+   1. Server endpoint: `https://exposed_service-[YOUR-CLUSTER-SUFFIX].headnodes.io.systems/`
+   2. If your cluster suffix is `1d47a`, then: `https://exposed_service-1d47a.headnodes.io.systems/`
+   3. One way to identify your prefix is from the the VSCode URL, which looks like `https://vscode-1d47a.headnodes.io.systems/`
    4. You can use below code snippet to interact with the Ray serve application created (update the endpoint to your server)
 
 ```python
 import requests
-SERVER_ENDPOINT = "https://exposed-service-1d47a.tunnels.io.systems/"
+SERVER_ENDPOINT = "https://exposed_service-1d47a.headnodes.io.systems/"
 message = "What is the capital of France?"
 history = []
 response = requests.post(SERVER_ENDPOINT, json={"user_input": message, "history": history})
@@ -56,8 +56,9 @@ print(response.json())
 or on a terminal:
 
 ```bash
-curl -X POST https://exposed-service-1d47a.tunnels.io.systems/ \
+curl -X POST https://exposed_service-1d47a.headnodes.io.systems/ \
 -H "Content-Type: application/json" \
 -d '{"user_input": "What is the capital of France?", "history": []}'
 
 ```
+
